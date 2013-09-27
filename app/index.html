@@ -19,17 +19,32 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
-
+        
         <div class="container">
-            <div class="header">
+           <!--  <div class="header">
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
                 <h3 class="text-muted">student directory</h3>
+            </div> -->
+            <div class="text">
+             <img class="logo" src="images/iron.png">
+               <h2>ACADEMY DIRECTORY</h2>
+               <div class="staff">
+               <img class="icons" src="images/teacher.png">
+                <a href="#/staff">Staff</a>
+
+               </div>
+               <div class="student">
+                <img class="icons" src="images/student.png">
+                <a href="#/students">Students</a>
             </div>
-        </div>
+
+           </div>
+         </div>
+
         <!-- end of container div -->
 
         <!-- template for main student directory page -->
@@ -48,7 +63,7 @@
 
         <!-- template for individual student page -->
        <script type="text/template" id="profile-template">
-            <img id="photo" src="<%= student.get('photo')%>"</img>
+            <img id="profile-photo" src="<%= student.get('photo')%>"</img>
             <h1> <%= student.get('name')%></h1>
             <ul>
                 <li>Email: <%= student.get('email')%></li>
@@ -60,9 +75,9 @@
 
        <!-- template for editing student page -->
         <script type="text/template" id="edit-template">
-            <input value="' + <%=student.get('name')%> + '">
-            <input value="' + <%=student.get('email')%> + '">
-            <input value="' + <%=student.get('github')%> + '">
+            <input id="name" value="<%=student.get('name')%>">
+            <input id="email" value="<%=student.get('email')%>">
+            <input id="github" value="<%=student.get('github')%>">
             <button id="save">Save</button> 
         </script>
 

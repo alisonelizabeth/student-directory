@@ -129,3 +129,52 @@ body {
     width: 340px;
     display: inline-block;
 }
+
+img#profile-photo{
+    width: 200px;
+    border-radius: 10px;
+}
+
+.person-view {
+    text-align: center;
+    width: 500px;
+    margin: 0 auto;
+
+    ul {
+        padding-left: 0px;
+    }
+}
+
+.text {
+    margin: 0 auto;
+    text-align: center;
+    vertical-align: top;
+    /*background: #FF7C7C;*/
+
+    .logo {
+        width: 300px;
+    }
+
+    .icons {
+        width: 50px;
+    }
+
+    .student {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        margin-bottom: 5px;
+    }
+
+    .staff {
+        display: inline-block;
+        width: 60px;
+        text-align: center;
+        margin-bottom: 5px;
+}
+
+}
+
+
+
+

@@ -1,4 +1,12 @@
 Student = Backbone.Model.extend({
+	defaults: {
+		name: 'Information not provided',
+		id: 'new-student',
+		email: 'Information not provided',
+		github: 'Information not provided',
+		photo: 'images/hendley.png'
+	}, 
+
 	initialize: function(){
 		console.log('new student created')
 	}

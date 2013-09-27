@@ -7,7 +7,8 @@ AppRouter = Backbone.Router.extend({
 
 	routes: {
 		"students"		: "showStudents",
-		"students/:id"	: "showStudent"
+		"students/:id"	: "showStudent",
+		"edit/:id"		: "editStudent"
 	},
 
 	showStudents: function(){
