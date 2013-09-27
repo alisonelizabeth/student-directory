@@ -1,14 +1,14 @@
+// view of all students in class
 CompleteDirectoryView = Backbone.View.extend({
 
 	template: _.template($('#grid-template').text()),
 
 	className: 'complete-view',
 
-	// events: {
-	// 	"click .activate" : "newView"
-	// },
-
-	tagName: 'a',
+	events: {
+		"click #activate"	: "render",
+		// "click #add"		: "add"
+	},
 
 	initialize: function() {
 		$('.container').append(this.el);
@@ -16,17 +16,17 @@ CompleteDirectoryView = Backbone.View.extend({
 	},
 
 	render: function(){
-		// this.$el.find('.activate').attr('href', "#/students/" + this.model.get('id') )
-		this.$el.attr('href', "#/students/" + this.model.get('id') )
+		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') )
 		this.$el.append(this.template({student: this.model }) )
 	},
 
-	// newView: function(e){
-	// 	e.preventDefault();
- //  		AppRouter.navigate("/students/" + this.model.get('id'), true);
+	// add: function(){
+	// 	$('.container').append('<input> Enter your name</input>')
+
 	// }
 });
 
+// view for individual students
 PersonView = Backbone.View.extend({
 	template: _.template($('#profile-template').text()),
 
@@ -71,33 +71,49 @@ PersonView = Backbone.View.extend({
 	}
 });
 
-// PersonEditView = Backbone.View.extend({
-	
-// 	template: _.template($('#profile-template').text()),
+// view for all staff members
+CompleteStaffView = Backbone.View.extend({
 
-// 	// template: _.template($('#edit-template').text()),
+	template: _.template($('#staff-template').text()),
 
-// 	className: 'person-edit-view',
+	className: 'complete-staff-view',
+
+	// events: {
+	// 	"click #activate" : "render"
+	// },
+
+	initialize: function() {
+		$('.container').append(this.el);
+		this.render();
+	},
+
+	render: function(){
+		// this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') )
+		this.$el.append(this.template({staff: this.model }) )
+	}
+});
+
+// addStudentView = Backbone.View.extend({
+
+// 	className: 'add-student',
 
 // 	events: {
-// 		"click #save"	: "save"
+// 		"click #add"	: "add"
 // 	},
 
 // 	initialize: function(){
-// 		console.log('edit view')
-// 		this.render()
+// 		console.log('adding a new person')
+// 		$('.container').append(this.el);
 // 	},
 
-// 	render: function(){
-// 		$('.person-view').html('');
-// 		this.$el.append(this.template({student: this.model}) )
-// 	},
-
-// 	save: function() {
-// 		var editedPerson = this.$el.find('input').val();
-// 		this.model.set('name', editedPerson);
-// 		this.render();
+// 	add: function(){	
+// 		this.$el.append('<input> Test</input>')
 // 	}
 // });
 
 
+
+// this.collection.each(function(student))
+// new AddView = ({model: student})
+
+// template: _.template($('#staff-profile-template').text()),

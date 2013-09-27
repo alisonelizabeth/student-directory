@@ -8,7 +8,8 @@ AppRouter = Backbone.Router.extend({
 	routes: {
 		"students"		: "showStudents",
 		"students/:id"	: "showStudent",
-		"edit/:id"		: "editStudent"
+		"staff"			: "showStaff"
+		// "staff/:id"		: "showStaffMember"
 	},
 
 	showStudents: function(){
@@ -23,9 +24,27 @@ AppRouter = Backbone.Router.extend({
 		var studentToShow = this.students.get(id);
 		new PersonView({model: studentToShow});
 		console.log('Student ID: ', id)
-	}
-});
+	},
 
+	showStaff: function(){
+		console.log('going to show staff');
+		$('.container').html('');
+		this.staffMembers = new StaffCollection();
+		this.staffMembers.add(staffData);
+	}
+
+	// showStaffMember: function(id){
+	// 	$('.container').html('');
+	// 	var staffMemberToShow = this.staffMembers.get(id);
+	// 	new PersonView({model: staffMemberToShow});
+	// 	console.log('Staff ID: ', id)
+	// }
+});
 
 var router = new AppRouter();
 Backbone.history.start();
+
+// bigview = 
+// render:
+// this.collection.each() function(item)
+// newItemView ({model: item})

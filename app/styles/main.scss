@@ -119,6 +119,7 @@ img#photo {
 
 .container {
     background: white;
+    padding-left: 30px;
 }
 
 body {
@@ -128,6 +129,7 @@ body {
 .complete-view {
     width: 340px;
     display: inline-block;
+/*    border-bottom: 1px solid black;*/
 }
 
 img#profile-photo{
@@ -150,6 +152,10 @@ img#profile-photo{
     text-align: center;
     vertical-align: top;
     /*background: #FF7C7C;*/
+
+    a {
+        color: black;
+    }
 
     .logo {
         width: 300px;
@@ -175,6 +181,8 @@ img#profile-photo{
 
 }
 
-
+#form {
+    margin: 10px;
+}
 
 

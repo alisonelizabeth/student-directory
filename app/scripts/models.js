@@ -2,8 +2,8 @@ Student = Backbone.Model.extend({
 	defaults: {
 		name: 'Information not provided',
 		id: 'new-student',
-		email: 'Information not provided',
-		github: 'Information not provided',
+		email: '',
+		github: '',
 		photo: 'images/hendley.png'
 	}, 
 
@@ -131,6 +131,67 @@ var data = [
 	email: 'jvnlwn@gmail.com',
 	github: 'github.com/joe-vanleeuwen',
 	photo: 'images/vanleeuwen.png'
+
+}
+]
+
+// staff model
+Staff = Backbone.Model.extend({
+	defaults: {
+		name: 'Information not provided',
+		id: 'new-staff',
+		email: '',
+		github: '',
+		photo: 'images/hendley.png'
+	}, 
+
+	initialize: function(){
+		console.log('new staff member created')
+	}
+});
+
+// staff collection 
+StaffCollection = Backbone.Collection.extend({
+	initialize: function(){
+		console.log('new collection created')
+	
+	this.on('add', function(staff){
+		new CompleteStaffView({model:staff})
+	});
+	},
+
+	model: Staff
+});
+
+// staff data 
+var staffData = [
+{
+	name: 'Mason Stewart',
+	id: 'mason-stewart',
+	title: 'Teacher',
+	email: 'mason@theironyard.com',
+	github: 'github.com/masondesu',
+	photo: 'images/stewart.jpg'
+
+},
+
+{
+	name: 'Eric Dodds',
+	id: 'eric-dodds',
+	title: 'Manager',
+	email: 'eric@theironyard.com',
+	github: 'github.com/ericdodds',
+	photo: 'images/dodds.jpg'
+
+},
+
+{
+	name: 'Daniel Jeffords',
+	id: 'daniel-jeffords',
+	title: "Teacher's Assistant",
+	email: 'daniel@theironyard.com',
+	github: 'github.com/DJSrA',
+	photo: 'images/jeffords.jpeg'
 
 }
 ]

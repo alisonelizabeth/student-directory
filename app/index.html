@@ -18,27 +18,27 @@
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-
+            <div class="header">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href=" ">Home</a></li>
+                    <li><a href="#/students">Students</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                </ul>
+                <a href=" "><h3 class="text-muted">academy directory</h3></a>
+            </div>
         
         <div class="container">
-           <!--  <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">student directory</h3>
-            </div> -->
+        
             <div class="text">
              <img class="logo" src="images/iron.png">
                <h2>ACADEMY DIRECTORY</h2>
                <div class="staff">
-               <img class="icons" src="images/teacher.png">
+               <a href="#/staff"><img class="icons" src="images/teacher.png"></a>
                 <a href="#/staff">Staff</a>
 
                </div>
                <div class="student">
-                <img class="icons" src="images/student.png">
+                <a href="#/students"><img class="icons" src="images/student.png"></a>
                 <a href="#/students">Students</a>
             </div>
 
@@ -55,8 +55,8 @@
             <div id="thumbnail-info">
                 <ul>
                     <li><%= student.get('name')%></li>
-                    <li><%= student.get('email')%></li> 
-                    <li><a type="button" class="btn btn-default btn-xs activate">More details</a><li>
+                    <li><a href="mailto:<%= student.get('email')%>"><%= student.get('email')%></a></li> 
+                    <li><a type="button" class="btn btn-default btn-xs" id="activate">More details</a><li>
                 </ul>
             </div>
         </script>
@@ -66,20 +66,45 @@
             <img id="profile-photo" src="<%= student.get('photo')%>"</img>
             <h1> <%= student.get('name')%></h1>
             <ul>
-                <li>Email: <%= student.get('email')%></li>
-                <li>Github page: <%= student.get('github')%></li>
+                <li>Email: <a href="mailto:<%= student.get('email')%>"> <%= student.get('email')%></a></li>
+                <li>Github page: <a href="https://<%=student.get('github')%>"> <%= student.get('github')%></a></li>
             </ul>
             <button id="edit">Edit</button>
             <button id="delete">Delete</button>
        </script>
 
        <!-- template for editing student page -->
-        <script type="text/template" id="edit-template">
-            <input id="name" value="<%=student.get('name')%>">
-            <input id="email" value="<%=student.get('email')%>">
-            <input id="github" value="<%=student.get('github')%>">
-            <button id="save">Save</button> 
+        <script type="text/template" id="edit-template"> 
+            <h1> Edit profile </h1> 
+            <ul>
+            <li>Name: <input id="name" value="<%=student.get('name')%>"></li>
+            <li>Email: <input id="email" value="<%=student.get('email')%>"></li>
+            <li>Github: <input id="github" value="<%=student.get('github')%>"></li>
+            <li><button id="save">Save</button></li>
+            </ul> 
         </script>
+
+        <!-- template for main staff directory page -->
+        <script type="text/template" id="staff-template">
+            <img src="<%= staff.get('photo')%>"</img>
+                <ul>
+                    <li><%= staff.get('name')%></li>
+                    <li><%= staff.get('title')%></li> 
+                    <li><a type="button" class="btn btn-default btn-xs">More details</a><li>
+                </ul>
+        </script>
+
+        <!-- template for staf member page -->
+        <script type="text/template" id="staff-profile-template">
+            <img id="profile-photo" src="<%= staff.get('photo')%>"</img>
+            <h1> <%= staff.get('name')%></h1>
+            <ul>
+                <li>Email: <a href="mailto:<%= staff.get('email')%>"> <%= staff.get('email')%></a></li>
+                <li>Github page: <a href="https://<%=staff.get('github')%>"> <%= staff.get('github')%></a></li>
+            </ul>
+            <button id="edit">Edit</button>
+            <button id="delete">Delete</button>
+       </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
