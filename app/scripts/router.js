@@ -1,8 +1,7 @@
 AppRouter = Backbone.Router.extend({
+
 	initialize: function(){
 		console.log('new route created')
-		// this.students = new StudentCollection()
-		// this.students.add(data)
 	},
 
 	routes: {
@@ -13,14 +12,30 @@ AppRouter = Backbone.Router.extend({
 	},
 
 	showStudents: function(){
-		console.log('going to show all the students');
+		var template = _.template($('#add-template').text())
+
 		$('.container').html('');
 		this.students = new StudentCollection();
 		this.students.add(data);
+		
+		$('.container-add').append(template);
+		$('#add').click(function() {
+			newName= $('#student-name').val();
+			newEmail= $('#email').val();
+			newGithub= $('#github').val();
+
+			newClassmate = new Student ({name:newName, id: newName, email: newEmail, github: newGithub});
+			newView = new CompleteDirectoryView ({model: newClassmate});
+
+			data.push(newClassmate)
+
+			$('input').val('')
+		});
 	},
 
 	showStudent: function(id){
 		$('.container').html('');
+		$('.container-add').html('');
 		var studentToShow = this.students.get(id);
 		new PersonView({model: studentToShow});
 		console.log('Student ID: ', id)
@@ -43,8 +58,3 @@ AppRouter = Backbone.Router.extend({
 
 var router = new AppRouter();
 Backbone.history.start();
-
-// bigview = 
-// render:
-// this.collection.each() function(item)
-// newItemView ({model: item})

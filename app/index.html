@@ -12,6 +12,11 @@
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
+        <link href='http://fonts.googleapis.com/css?family=Francois+One' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+
+
+
         <!-- endbuild -->
     </head>
     <body>
@@ -19,18 +24,22 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
             <div class="header">
+                <div class="header-container">
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href=" ">Home</a></li>
                     <li><a href="#/students">Students</a></li>
                     <li><a href="#/staff">Staff</a></li>
                 </ul>
                 <a href=" "><h3 class="text-muted">academy directory</h3></a>
+                </div>
             </div>
         
         <div class="container">
         
-            <div class="text">
+            <div class="logo">
              <img class="logo" src="images/iron.png">
+             </div>
+             <div class="text">
                <h2>ACADEMY DIRECTORY</h2>
                <div class="staff">
                <a href="#/staff"><img class="icons" src="images/teacher.png"></a>
@@ -45,6 +54,9 @@
            </div>
          </div>
 
+         <div class="container-add">
+         </div>
+
         <!-- end of container div -->
 
         <!-- template for main student directory page -->
@@ -54,11 +66,20 @@
             </div>
             <div id="thumbnail-info">
                 <ul>
-                    <li><%= student.get('name')%></li>
-                    <li><a href="mailto:<%= student.get('email')%>"><%= student.get('email')%></a></li> 
-                    <li><a type="button" class="btn btn-default btn-xs" id="activate">More details</a><li>
+                    <li id="name"><%= student.get('name')%></li>
+                    <li id="sub-info"><a href="mailto:<%= student.get('email')%>"><%= student.get('email')%></a></li> 
+                    <li id="sub-info"><a type="button" class="btn btn-default btn-xs" id="activate">More details</a><li>
                 </ul>
             </div>
+        </script>
+
+        <!-- template to add new student on student directory page -->
+        <script type="text/template" id="add-template">
+        <h1> Add a new student</h1> 
+        <input id="student-name" placeholder='Name'>
+        <input id="email" placeholder='Email'>
+        <input id="github" placeholder='Github account'>
+        <button type="button" id="add" class="btn btn-default btn-lg">Add student</button>
         </script>
 
         <!-- template for individual student page -->
@@ -88,13 +109,13 @@
         <script type="text/template" id="staff-template">
             <img src="<%= staff.get('photo')%>"</img>
                 <ul>
-                    <li><%= staff.get('name')%></li>
+                    <li id="staff-name"><%= staff.get('name')%></li>
                     <li><%= staff.get('title')%></li> 
                     <li><a type="button" class="btn btn-default btn-xs">More details</a><li>
                 </ul>
         </script>
 
-        <!-- template for staf member page -->
+        <!-- template for staff member page -->
         <script type="text/template" id="staff-profile-template">
             <img id="profile-photo" src="<%= staff.get('photo')%>"</img>
             <h1> <%= staff.get('name')%></h1>

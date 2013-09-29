@@ -11,7 +11,6 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
     padding-bottom: 20px;
 }
 
@@ -24,9 +23,9 @@ body {
 }
 
 /* Custom page header */
-.header {
+/*.header {
     border-bottom: 1px solid #e5e5e5;
-}
+}*/
 
 /* Make the masthead heading the same height as the navigation */
 .header h3 {
@@ -92,58 +91,98 @@ body {
 
 /*alison's styles*/
 
+$headingfont: 'Francois One', Helvetica, sans-serif;
+$secondfont: 'Droid Sans', Helvetica, sans-serif;
+
 li {
     list-style-type: none;
 }
 
-#thumbnail {
-    display: inline-block;
-}
+/*body {
+    background: #FCF0E7;
+}*/
 
-img#photo {
-    width: 75px;
-    margin: 10px 0px;
-    border-radius: 10px;
-}
-
-#thumbnail-info {
-    width: 260px;
-    height: 35px;
-    display: inline-block;
-
-    ul {
-        padding-left: 5px;
-    }
+.text-muted {
+    font-family: $headingfont;
 
 }
 
-.container {
-    background: white;
-    padding-left: 30px;
+.nav {
+    font-family: $secondfont;
 }
 
-body {
-    background: #F8F8F8;
+.header-container {
+    width: 940px;
+    margin: 0 auto;
+}
+
+.header {
+    margin: 0px;
+    /*background: #3F3F3F;*/
+}
+
+.container-add {
+    max-width: 730px;
+    margin: 0 auto;
 }
 
 .complete-view {
     width: 340px;
     display: inline-block;
-/*    border-bottom: 1px solid black;*/
-}
+    border-bottom: 1px solid rgb(216, 216, 216);
+    margin-left: 10px;
 
-img#profile-photo{
-    width: 200px;
-    border-radius: 10px;
+    #thumbnail {
+        display: inline-block;
+    }
+
+    #thumbnail-info {
+        width: 260px;
+        height: 35px;
+        display: inline-block;
+
+    ul {
+        padding-left: 5px;
+        }
+    }
+    img {
+        width: 75px;
+        margin: 10px 0px;
+        border-radius: 10px;
+    }
+
+    #name {
+        font-family: $headingfont;
+    }
+
+    #sub-info {
+        font-family: $secondfont;
+    }
+
 }
 
 .person-view {
+    padding: 20px 0px;
     text-align: center;
-    width: 500px;
+    width: 400px;
     margin: 0 auto;
+    background: white;
 
     ul {
         padding-left: 0px;
+    }
+
+    img {
+        width: 200px;
+        border-radius: 10px;
+    }
+
+    h1 {
+        font-family: $headingfont;
+    }
+
+    li {
+        font-family: $secondfont;
     }
 }
 
@@ -151,14 +190,16 @@ img#profile-photo{
     margin: 0 auto;
     text-align: center;
     vertical-align: top;
-    /*background: #FF7C7C;*/
+    background: #F3F3F3;
+    padding-top: 1px;
+
+    h2 {
+        font-family: $headingfont;
+    }
 
     a {
         color: black;
-    }
-
-    .logo {
-        width: 300px;
+        font-family: $secondfont;
     }
 
     .icons {
@@ -181,8 +222,36 @@ img#profile-photo{
 
 }
 
-#form {
-    margin: 10px;
+.logo {
+        padding: 10px 0px 5px 0px;
+        width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        background: #FF7C7C;
+    img {
+        width: 300px;
+    }
+    }
+
+.complete-staff-view {
+    display: inline-block;
+    background: white;
+
+    img {
+        width: 200px;
+        margin: 10px;
+    }
+
+    #staff-name {
+        font-family: $headingfont;
+    }
+
+    ul {
+        padding: 0px;
+        text-align: center;
+    }
+
+    li {
+        font-family: $secondfont;
+    }
 }
-
-

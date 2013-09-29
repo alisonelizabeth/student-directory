@@ -13,17 +13,13 @@ CompleteDirectoryView = Backbone.View.extend({
 	initialize: function() {
 		$('.container').append(this.el);
 		this.render();
+		// this.addView = new addStudentView()
 	},
 
 	render: function(){
 		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') )
 		this.$el.append(this.template({student: this.model }) )
-	},
-
-	// add: function(){
-	// 	$('.container').append('<input> Enter your name</input>')
-
-	// }
+	}
 });
 
 // view for individual students
@@ -92,26 +88,6 @@ CompleteStaffView = Backbone.View.extend({
 		this.$el.append(this.template({staff: this.model }) )
 	}
 });
-
-// addStudentView = Backbone.View.extend({
-
-// 	className: 'add-student',
-
-// 	events: {
-// 		"click #add"	: "add"
-// 	},
-
-// 	initialize: function(){
-// 		console.log('adding a new person')
-// 		$('.container').append(this.el);
-// 	},
-
-// 	add: function(){	
-// 		this.$el.append('<input> Test</input>')
-// 	}
-// });
-
-
 
 // this.collection.each(function(student))
 // new AddView = ({model: student})
