@@ -75,11 +75,10 @@
 
         <!-- template to add new student on student directory page -->
         <script type="text/template" id="add-template">
-        <h1> Add a new student</h1> 
         <input id="student-name" placeholder='Name'>
         <input id="email" placeholder='Email'>
         <input id="github" placeholder='Github account'>
-        <button type="button" id="add" class="btn btn-default btn-lg">Add student</button>
+        <button type="button" id="add" class="btn btn-default">Add student</button>
         </script>
 
         <!-- template for individual student page -->
@@ -111,21 +110,9 @@
                 <ul>
                     <li id="staff-name"><%= staff.get('name')%></li>
                     <li><%= staff.get('title')%></li> 
-                    <li><a type="button" class="btn btn-default btn-xs">More details</a><li>
+                     <li><a href="mailto:<%= staff.get('email')%>"> <%= staff.get('email')%></a></li>
                 </ul>
         </script>
-
-        <!-- template for staff member page -->
-        <script type="text/template" id="staff-profile-template">
-            <img id="profile-photo" src="<%= staff.get('photo')%>"</img>
-            <h1> <%= staff.get('name')%></h1>
-            <ul>
-                <li>Email: <a href="mailto:<%= staff.get('email')%>"> <%= staff.get('email')%></a></li>
-                <li>Github page: <a href="https://<%=staff.get('github')%>"> <%= staff.get('github')%></a></li>
-            </ul>
-            <button id="edit">Edit</button>
-            <button id="delete">Delete</button>
-       </script>
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

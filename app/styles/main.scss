@@ -12,6 +12,7 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 /* Space out content a bit */
 body {
     padding-bottom: 20px;
+    background: #D8D8D8;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -70,6 +71,8 @@ body {
 @media screen and (min-width: 768px) {
     .container {
         max-width: 730px;
+        background: white;
+        padding: 0px;
     }
 
     /* Remove the padding we set earlier */
@@ -102,9 +105,21 @@ li {
     background: #FCF0E7;
 }*/
 
-.text-muted {
+h3.text-muted {
     font-family: $headingfont;
+    color: #4B4B4B;
+    margin-top: 10px;
 
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: white;
+    background-color: #1187E4;
+
+}
+
+ul.nav {
+    margin-top: 5px;
 }
 
 .nav {
@@ -118,12 +133,27 @@ li {
 
 .header {
     margin: 0px;
-    /*background: #3F3F3F;*/
 }
 
 .container-add {
     max-width: 730px;
     margin: 0 auto;
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    input {
+        font-family: $secondfont;
+        margin: 5px 5px;
+        height: 32px;
+    }
+
+    .btn {
+        font-family: $secondfont;
+    }
+
+    #student-name {
+        margin-left: 50px;
+    }
 }
 
 .complete-view {
@@ -192,6 +222,7 @@ li {
     vertical-align: top;
     background: #F3F3F3;
     padding-top: 1px;
+    padding-bottom: 10px;
 
     h2 {
         font-family: $headingfont;
@@ -203,21 +234,29 @@ li {
     }
 
     .icons {
-        width: 50px;
+        width: 35px;
     }
 
     .student {
         display: inline-block;
-        width: 60px;
+        width: 80px;
         text-align: center;
+        background: #1187E4;
         margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 40px;
+        border: #999CB3 1px solid;
     }
 
     .staff {
         display: inline-block;
-        width: 60px;
+        width: 80px;
         text-align: center;
+        background: #1187E4;
         margin-bottom: 5px;
+        padding: 10px;
+        border-radius: 40px;
+        border: #999CB3 1px solid;
 }
 
 }
@@ -236,6 +275,7 @@ li {
 .complete-staff-view {
     display: inline-block;
     background: white;
+    margin: 10px;
 
     img {
         width: 200px;

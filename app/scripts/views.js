@@ -7,18 +7,16 @@ CompleteDirectoryView = Backbone.View.extend({
 
 	events: {
 		"click #activate"	: "render",
-		// "click #add"		: "add"
 	},
 
 	initialize: function() {
 		$('.container').append(this.el);
 		this.render();
-		// this.addView = new addStudentView()
 	},
 
 	render: function(){
-		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') )
-		this.$el.append(this.template({student: this.model }) )
+		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') );
+		this.$el.append(this.template({student: this.model }) );
 	}
 });
 
@@ -40,8 +38,8 @@ PersonView = Backbone.View.extend({
 	},
 
 	render: function(){
-		$('.person-view').html('')
-		this.$el.append(this.template({student: this.model}) )
+		$('.person-view').html('');
+		this.$el.append(this.template({student: this.model}) );
 	},
 
 	edit: function() {
@@ -74,22 +72,12 @@ CompleteStaffView = Backbone.View.extend({
 
 	className: 'complete-staff-view',
 
-	// events: {
-	// 	"click #activate" : "render"
-	// },
-
 	initialize: function() {
 		$('.container').append(this.el);
 		this.render();
 	},
 
 	render: function(){
-		// this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') )
 		this.$el.append(this.template({staff: this.model }) )
 	}
 });
-
-// this.collection.each(function(student))
-// new AddView = ({model: student})
-
-// template: _.template($('#staff-profile-template').text()),
