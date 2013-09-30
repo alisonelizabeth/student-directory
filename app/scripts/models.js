@@ -4,7 +4,7 @@ Student = Backbone.Model.extend({
 		id: 'new-student',
 		email: '',
 		github: '',
-		photo: 'images/hendley.png'
+		photo: '/images/hendley.png'
 	}, 
 
 	initialize: function(){
@@ -31,7 +31,7 @@ var data = [
 	id: 'caleb-bradley',
 	email: 'calebbradley30@yahoo.com',
 	github: 'github.com/calebbradley',
-	photo: 'images/bradley.jpeg'
+	photo: '/images/bradley.jpeg'
 
 },
 
@@ -40,7 +40,7 @@ var data = [
 	id: 'andy-flack',
 	email: 'flack.ap@gmail.com',
 	github: 'github.com/FlackAP',
-	photo: 'images/flack.png'
+	photo: '/images/flack.png'
 
 },
 
@@ -49,7 +49,7 @@ var data = [
 	id: 'jake-hendley',
 	email: 'jhendley25@gmail.com',
 	github: 'github.com/jhendley25',
-	photo: 'images/hendley.png'
+	photo: '/images/hendley.png'
 
 },
 
@@ -58,7 +58,7 @@ var data = [
 	id: 'keeron-marc',
 	email: 'keeronmarc@gmail.com',
 	github: 'github.com/keeronmarc',
-	photo: 'images/marc.jpeg'
+	photo: '/images/marc.jpeg'
 
 },
 
@@ -67,7 +67,7 @@ var data = [
 	id: 'alison-miller',
 	email: 'alisonmllr20@gmail.com',
 	github: 'github.com/alisonelizabeth',
-	photo: 'images/amiller.jpeg'
+	photo: '/images/amiller.jpeg'
 
 },
 
@@ -76,7 +76,7 @@ var data = [
 	id: 'brandon-miller',
 	email: 'bmiller@gmail.com',
 	github: 'github.com/BrandonEMiller',
-	photo: 'images/bmiller.jpeg'
+	photo: '/images/bmiller.jpeg'
 
 },
 
@@ -85,7 +85,7 @@ var data = [
 	id: 'tyler-phillips',
 	email: 'tylerfphillips@gmail.com',
 	github: 'github.com/tylerphillips',
-	photo: 'images/phillips.jpeg'
+	photo: '/images/phillips.jpeg'
 
 },
 
@@ -94,7 +94,7 @@ var data = [
 	id: 'ari-picker',
 	email: 'picker10024@yahoo.com',
 	github: 'github.com/Pickra',
-	photo: 'images/picker.jpeg'
+	photo: '/images/picker.jpeg'
 
 },
 
@@ -103,7 +103,7 @@ var data = [
 	id: 'ryan-ponce',
 	email: 'ryanponce@gmail.com',
 	github: 'github.com/ryanponce',
-	photo: 'images/ponce.png'
+	photo: '/images/ponce.png'
 
 },
 
@@ -112,7 +112,7 @@ var data = [
 	id: 'ryan-poplin',
 	email: 'mobileupstate@gmail.com',
 	github: 'github.com/ryanpoplin',
-	photo: 'images/poplin.jpeg'
+	photo: '/images/poplin.jpeg'
 
 },
 
@@ -121,7 +121,7 @@ var data = [
 	id: 'joe-tamburro',
 	email: 'joetamburro38@gmail.com',
 	github: 'github.com/joetamburro',
-	photo: 'images/tamburro.jpeg'
+	photo: '/images/tamburro.jpeg'
 
 },
 
@@ -130,7 +130,7 @@ var data = [
 	id: 'joe-vanleeuwen',
 	email: 'jvnlwn@gmail.com',
 	github: 'github.com/joe-vanleeuwen',
-	photo: 'images/vanleeuwen.png'
+	photo: '/images/vanleeuwen.png'
 
 }
 ]
@@ -142,7 +142,7 @@ Staff = Backbone.Model.extend({
 		id: 'new-staff',
 		email: '',
 		github: '',
-		photo: 'images/hendley.png'
+		photo: '/images/hendley.png'
 	}, 
 
 	initialize: function(){
@@ -171,7 +171,7 @@ var staffData = [
 	title: 'Teacher',
 	email: 'mason@theironyard.com',
 	github: 'github.com/masondesu',
-	photo: 'images/stewart.jpg'
+	photo: '/images/stewart.jpg'
 
 },
 
@@ -181,7 +181,7 @@ var staffData = [
 	title: 'Program Manager',
 	email: 'eric@theironyard.com',
 	github: 'github.com/ericdodds',
-	photo: 'images/dodds.jpg'
+	photo: '/images/dodds.jpg'
 
 },
 
@@ -191,7 +191,7 @@ var staffData = [
 	title: "Teacher's Assistant",
 	email: 'daniel@theironyard.com',
 	github: 'github.com/DJSrA',
-	photo: 'images/jeffords.jpeg'
+	photo: '/images/jeffords.jpeg'
 
 }
 ]

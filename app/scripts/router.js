@@ -20,7 +20,8 @@ AppRouter = Backbone.Router.extend({
 		this.students.add(data);
 		
 		$('.container-add').append(template).css({'background-color':'#1187E4'});
-		$('#add').click(function() {
+		$('#add').click(function(e) {
+			e.preventDefault();
 			var newName= $('#student-name').val();
 			var newEmail= $('#email').val();
 			var newGithub= $('#github').val();
