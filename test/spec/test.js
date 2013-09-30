@@ -2,43 +2,30 @@
 'use strict';
 (function () {
   describe('The student directory', function(){ 
-    it('should display all items in the collection on page load', function(){
-      var testData = [ {
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'johndoe@gmail.com',
-        github: 'github.com/johndoe',
-        photo: '<img class="photo" src="images/hendley.png>'
-      },    
+    it('should add a new student to the CompleteDirectoryView', function(){
+        $('a.student').click();
 
-      {
-        firstName: 'Jane',
-        lastName: 'Doe',
-        email: 'janedoe@gmail.com',
-        github: 'github.com/janedoe',
-        photo: '<img class="photo" src="images/hendley.png>'
-      }
-    ]
+        var randomName = $('#student-name').val('John Doe')
+        var randomEmail = $('#email').val('johndoe@gmail.com') 
+        var randomGithub = $('#github').val('johndoe.gihub.com')
 
-    var students = new StudentCollection();
-    students.add(testData);
+        $('#add').click();
 
-    expect(students.length).to.equal(2)
+    expect($('li#name').last().text()).to.equal('John Doe')
 
     }); // end it()
   
-    // it ('should save a person ', function(done) {
-    //   var randomTask = 'Task #'+ Math.floor(Math.random()*10000000)
-    //   $('#form-input').val(randomTask)
-    //   $('.add').click();
+   it ('should save a new name when a student directory is edited', function(){
+        $('a.student').click();
+        $('#activate').last().click();
+        $('#edit').click();
 
-    //   setTimeout(function(){
-    //     expect($('.task ul li').last().text()).to.equal(randomTask)
-    //     done();
-    //   },2000)
-    // }); // end it()
+        var newName = $('input#name').val('John Doe')
 
+        $('#save').click();
 
+        expect($('h1')).to.equal('John Doe')
+   });
 
   }); // end of describe ()
 })();

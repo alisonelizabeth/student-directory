@@ -6,7 +6,7 @@ CompleteDirectoryView = Backbone.View.extend({
 	className: 'complete-view',
 
 	events: {
-		"click #activate"	: "render",
+		"click #activate"	: "activate",
 	},
 
 	initialize: function() {
@@ -15,8 +15,11 @@ CompleteDirectoryView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') );
 		this.$el.append(this.template({student: this.model }) );
+	},
+
+	activate: function() {
+		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') );
 	}
 });
 
@@ -78,6 +81,6 @@ CompleteStaffView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.append(this.template({staff: this.model }) )
+		this.$el.append(this.template({staff: this.model }) );
 	}
 });

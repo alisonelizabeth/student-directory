@@ -118,6 +118,10 @@ h3.text-muted {
 
 }
 
+.nav-pills > li > a {
+    color: #1187E4;
+}
+
 ul.nav {
     margin-top: 5px;
 }
@@ -214,6 +218,15 @@ ul.nav {
     li {
         font-family: $secondfont;
     }
+
+    input {
+        margin-bottom: 10px;
+        width: 250px;
+    }
+
+    span {
+        margin-right: 5px;
+    }
 }
 
 .text {
@@ -280,6 +293,7 @@ ul.nav {
     img {
         width: 200px;
         margin: 10px;
+        border-radius: 10px;
     }
 
     #staff-name {

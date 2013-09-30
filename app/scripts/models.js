@@ -178,7 +178,7 @@ var staffData = [
 {
 	name: 'Eric Dodds',
 	id: 'eric-dodds',
-	title: 'Manager',
+	title: 'Program Manager',
 	email: 'eric@theironyard.com',
 	github: 'github.com/ericdodds',
 	photo: 'images/dodds.jpg'
