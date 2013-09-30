@@ -55,7 +55,7 @@
         <!-- template for main student directory page -->
         <script type="text/template" id="grid-template">
             <div id="thumbnail">
-            <img id="photo" src="<%= student.get('photo')%>"</img>
+            <img id="photo" src="<%= student.get('photo')%>">
             </div>
             <div id="thumbnail-info">
                 <ul>
@@ -76,7 +76,7 @@
 
         <!-- template for individual student page -->
        <script type="text/template" id="profile-template">
-            <img id="profile-photo" src="<%= student.get('photo')%>"</img>
+            <img id="profile-photo" src="<%= student.get('photo')%>">
             <h1> <%= student.get('name')%></h1>
             <ul>
                 <li>Email: <a href="mailto:<%= student.get('email')%>"> <%= student.get('email')%></a></li>
@@ -99,7 +99,7 @@
 
         <!-- template for main staff directory page -->
         <script type="text/template" id="staff-template">
-            <img src="<%= staff.get('photo')%>"</img>
+            <img src="<%= staff.get('photo')%>">
                 <ul>
                     <li id="staff-name"><%= staff.get('name')%></li>
                     <li><%= staff.get('title')%></li> 
