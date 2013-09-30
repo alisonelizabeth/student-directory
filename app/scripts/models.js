@@ -31,7 +31,7 @@ var data = [
 	id: 'caleb-bradley',
 	email: 'calebbradley30@yahoo.com',
 	github: 'github.com/calebbradley',
-	photo: '/images/bradley.jpeg'
+	photo: '<img src= "images/bradley.jpeg">'
 
 },
 
