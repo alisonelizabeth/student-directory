@@ -1,0 +1,128 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>student directory</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="styles/0311124e.main.css">
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+            <div class="header">
+                <div class="header-container">
+                <ul class="nav nav-pills pull-right">
+                    <li class="active"><a href="">Home</a></li>
+                    <li><a href="#/students">Students</a></li>
+                    <li><a href="#/staff">Staff</a></li>
+                </ul>
+                <a href=""><h3 class="text-muted">academy directory</h3></a>
+                </div>
+            </div>
+        
+        <div class="container">
+        
+            <div class="logo">
+             <img class="logo" src="images/de18f377.iron.png">
+             </div>
+             <div class="text">
+               <h2>ACADEMY DIRECTORY</h2>
+               <div class="staff">
+               <a href="#/staff"><img class="icons" src="images/076f80c3.teacher.png"></a>
+                <a href="#/staff">Staff</a>
+
+               </div>
+               <div class="student">
+                <a href="#/students"><img class="icons" src="images/e7073340.student.png"></a>
+                <a href="#/students">Students</a>
+            </div>
+
+           </div>
+         </div>
+
+         <div class="container-add">
+         </div>
+
+        <!-- end of container div -->
+
+        <!-- template for main student directory page -->
+        <script type="text/template" id="grid-template">
+            <div id="thumbnail">
+            <img id="photo" src="<%= student.get('photo')%>"</img>
+            </div>
+            <div id="thumbnail-info">
+                <ul>
+                    <li id="name"><%= student.get('name')%></li>
+                    <li id="sub-info"><a href="mailto:<%= student.get('email')%>"><%= student.get('email')%></a></li> 
+                    <li id="sub-info"><a type="button" class="btn btn-default btn-xs" id="activate">More details</a><li>
+                </ul>
+            </div>
+        </script>
+
+        <!-- template to add new student on student directory page -->
+        <script type="text/template" id="add-template">
+        <input id="student-name" placeholder='Name'>
+        <input id="email" placeholder='Email'>
+        <input id="github" placeholder='Github account'>
+        <button type="button" id="add" class="btn btn-default">Add student</button>
+        </script>
+
+        <!-- template for individual student page -->
+       <script type="text/template" id="profile-template">
+            <img id="profile-photo" src="<%= student.get('photo')%>"</img>
+            <h1> <%= student.get('name')%></h1>
+            <ul>
+                <li>Email: <a href="mailto:<%= student.get('email')%>"> <%= student.get('email')%></a></li>
+                <li>Github page: <a href="https://<%=student.get('github')%>"> <%= student.get('github')%></a></li>
+            </ul>
+            <button id="edit">Edit</button>
+            <button id="delete">Delete</button>
+       </script>
+
+       <!-- template for editing student page -->
+        <script type="text/template" id="edit-template"> 
+            <h1> Edit profile </h1> 
+            <ul>
+            <li><span>Name:  </span> <input id="name" value="<%=student.get('name')%>"></li>
+            <li><span>Email: </span> <input id="email" value="<%=student.get('email')%>"></li>
+            <li><span>Github:</span> <input id="github" value="<%=student.get('github')%>"></li>
+            <li><button id="save">Save</button></li>
+            </ul> 
+        </script>
+
+        <!-- template for main staff directory page -->
+        <script type="text/template" id="staff-template">
+            <img src="<%= staff.get('photo')%>"</img>
+                <ul>
+                    <li id="staff-name"><%= staff.get('name')%></li>
+                    <li><%= staff.get('title')%></li> 
+                     <li><a href="mailto:<%= staff.get('email')%>"> <%= staff.get('email')%></a></li>
+                </ul>
+        </script>
+
+        <script src="scripts/950f5e92.vendor.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='//www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X');ga('send','pageview');
+        </script>
+
+        <script src="scripts/92ab4a63.main.js"></script>
+
+        <script src="scripts/3431b5a9.coffee.js"></script>
+
+        <script src="scripts/491c175a.plugins.js"></script>
+</body>
+</html>
