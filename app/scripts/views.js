@@ -52,7 +52,7 @@ PersonView = Backbone.View.extend({
 	},
 
 	destroy: function() {
-		this.remove();
+		this.model.remove();
 	},
 
 	save: function() {

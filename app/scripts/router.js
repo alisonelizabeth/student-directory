@@ -17,11 +17,14 @@ AppRouter = Backbone.Router.extend({
 		$('.container-add').html('');
 
 		this.students = new StudentCollection();
-		this.students.add(data);
+		var that = this
+
+		$.getJSON("http://0.0.0.0:3000/collections/studentdata",function(results){
+			that.students.add(results);
+    	});
 		
 		$('.container-add').append(template).css({'background-color':'#1187E4'});
-		$('#add').click(function(e) {
-			e.preventDefault();
+		$('#add').click(function() {
 			var newName= $('#student-name').val();
 			var newEmail= $('#email').val();
 			var newGithub= $('#github').val();
@@ -29,9 +32,9 @@ AppRouter = Backbone.Router.extend({
 			var newClassmate = new Student ({name:newName, id: newName, email: newEmail, github: newGithub});
 			var newView = new CompleteDirectoryView ({model: newClassmate});
 
-			data.push(newClassmate);
+			$.post('http://0.0.0.0:3000/collections/studentdata', {name:newName, id: newName, email: newEmail, github: newGithub})
 
-			$('input').val('')
+			$('input').val('');
 		});
 	},
 
@@ -41,15 +44,17 @@ AppRouter = Backbone.Router.extend({
 
 		var studentToShow = this.students.get(id);
 		new PersonView({model: studentToShow});
-		console.log('Student ID: ', id);
 	},
 
 	showStaff: function(){
 		console.log('going to show staff');
 		$('.container').html('');
 		$('.container-add').html('').css({'background-color': 'white'});
-		this.staffMembers = new StaffCollection();
-		this.staffMembers.add(staffData);
+
+		$.getJSON("http://0.0.0.0:3000/collections/staffdata",function(results){
+			this.staffMembers = new StaffCollection();
+			this.staffMembers.add(results);
+    	});
 	}
 });
 
