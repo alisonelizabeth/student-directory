@@ -2,6 +2,9 @@ AppRouter = Backbone.Router.extend({
 
 	initialize: function(){
 		console.log('new route created')
+		this.students = new StudentCollection();
+		this.staffMembers = new StaffCollection();
+
 	},
 
 	routes: {
@@ -16,12 +19,13 @@ AppRouter = Backbone.Router.extend({
 		$('.container').html('');
 		$('.container-add').html('');
 
-		this.students = new StudentCollection();
-		var that = this
-
-		$.getJSON("http://0.0.0.0:3000/collections/studentdata",function(results){
-			that.students.add(results);
-    	});
+		this.students.fetch({
+			success: function(students) {
+				students.each(function(student){
+					new CompleteDirectoryView({model: student})
+				});
+			}
+		});
 		
 		$('.container-add').append(template).css({'background-color':'#1187E4'});
 		$('#add').click(function() {
@@ -42,8 +46,13 @@ AppRouter = Backbone.Router.extend({
 		$('.container').html('');
 		$('.container-add').html('').css({'background-color': 'white'});
 
-		var studentToShow = this.students.get(id);
-		new PersonView({model: studentToShow});
+		var that = this  
+		this.students.fetch({
+			success: function() {
+				studentToShow = that.students.get(id);
+				new PersonView({model: studentToShow});
+			}
+		});
 	},
 
 	showStaff: function(){
@@ -51,12 +60,17 @@ AppRouter = Backbone.Router.extend({
 		$('.container').html('');
 		$('.container-add').html('').css({'background-color': 'white'});
 
-		$.getJSON("http://0.0.0.0:3000/collections/staffdata",function(results){
-			this.staffMembers = new StaffCollection();
-			this.staffMembers.add(results);
-    	});
-	}
+		this.staffMembers.fetch({
+			success: function(staffMembers) {
+				staffMembers.each(function(staffMember){
+					new CompleteStaffView({model: staffMember})
+					});
+				}
+			});
+		}
 });
 
-var router = new AppRouter();
-Backbone.history.start();
+$('document').ready(function() {
+	var router = new AppRouter();
+	Backbone.history.start();
+});

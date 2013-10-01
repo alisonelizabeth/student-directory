@@ -19,7 +19,7 @@ CompleteDirectoryView = Backbone.View.extend({
 	},
 
 	activate: function() {
-		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('id') );
+		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('_id') );
 	}
 });
 
