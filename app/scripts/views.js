@@ -1,12 +1,12 @@
 // view of all students in class
 CompleteDirectoryView = Backbone.View.extend({
 
-	template: _.template($('#grid-template').text()),
+	gridTemplate: _.template($('#grid-template').text()),
 
 	className: 'complete-view',
 
 	events: {
-		"click #activate"	: "activate",
+		"click #activate"	: "activate"
 	},
 
 	initialize: function() {
@@ -15,12 +15,49 @@ CompleteDirectoryView = Backbone.View.extend({
 	},
 
 	render: function(){
-		this.$el.append(this.template({student: this.model }) );
+		this.$el.append(this.gridTemplate({student: this.model }) );
 	},
 
 	activate: function() {
 		this.$el.find('#activate').attr('href', "#/students/" + this.model.get('_id') );
+	},
+});
+
+// add new person to directory 
+AddPersonView = Backbone.View.extend({
+	addTemplate: _.template($('#add-template').text()),
+
+	el: '.container-add',
+
+	events: {
+		"click #add": "addPerson"
+	},
+
+	initialize: function(){
+		console.log('added input field')
+		this.render();
+	},
+
+	render: function () {
+		this.$el.empty();
+		this.$el.append(this.addTemplate()).css({'background-color':'#1187E4'});
+	},
+
+	addPerson: function() {
+		var newName = $('input#student-name').val();
+		var newEmail = $('input#student-email').val();
+		var newGithub = $('input#student-github').val();
+
+		var newClassmate = new Student();
+		newClassmate.set({name: newName, id: newName, email: newEmail, github: newGithub})
+		students = new StudentCollection()
+		students.add(newClassmate)
+		var newView = new CompleteDirectoryView ({model: newClassmate});
+		newClassmate.save()
+
+		$('input').val('');
 	}
+
 });
 
 // view for individual students
@@ -52,7 +89,11 @@ PersonView = Backbone.View.extend({
 	},
 
 	destroy: function() {
-		this.model.remove();
+		if (confirm('Are you sure you want to delete this person?') === true) {
+		this.model.destroy();
+		this.remove();
+		Backbone.history.navigate("#/students", {trigger:true});
+		} 
 	},
 
 	save: function() {
@@ -60,10 +101,7 @@ PersonView = Backbone.View.extend({
 		var editedEmail = this.$el.find('input#email').val();
 		var editedGithub = this.$el.find('input#github').val();
 
-		this.model.set('name', editedName);
-		this.model.set('email', editedEmail);
-		this.model.set('github', editedGithub);
-
+		this.model.save({'name': editedName, 'email': editedEmail, 'github': editedGithub})
 		this.render();
 	}
 });

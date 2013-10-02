@@ -34,9 +34,13 @@
                 </div>
             </div>
         
-        <div class="container">
-        
-            <div class="logo">
+        <div class="container"></div>
+        <div class="container-add"></div>
+
+
+        <!-- template for home page -->
+        <script type="text/template" id="home-template">
+        <div class="logo">
              <img class="logo" src="images/iron.png">
              </div>
              <div class="text">
@@ -52,12 +56,7 @@
             </div>
 
            </div>
-         </div>
-
-         <div class="container-add">
-         </div>
-
-        <!-- end of container div -->
+        </script>
 
         <!-- template for main student directory page -->
         <script type="text/template" id="grid-template">
@@ -76,8 +75,8 @@
         <!-- template to add new student on student directory page -->
         <script type="text/template" id="add-template">
         <input id="student-name" placeholder='Name'>
-        <input id="email" placeholder='Email'>
-        <input id="github" placeholder='Github account'>
+        <input id="student-email" placeholder='Email'>
+        <input id="student-github" placeholder='Github account'>
         <button type="button" id="add" class="btn btn-default">Add student</button>
         </script>
 

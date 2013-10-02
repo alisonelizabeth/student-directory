@@ -16,7 +16,7 @@ Student = Backbone.Model.extend({
 
 StudentCollection = Backbone.Collection.extend({
 	initialize: function(){
-		console.log('new collection created')
+		console.log('new student collection created')
 	},
 
 	model: Student,
@@ -44,7 +44,7 @@ Staff = Backbone.Model.extend({
 // staff collection 
 StaffCollection = Backbone.Collection.extend({
 	initialize: function(){
-		console.log('new collection created')
+		console.log('new staff collection created')
 	},
 
 	model: Staff,

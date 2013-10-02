@@ -1,3 +1,8 @@
+$('document').ready(function() {
+	var router = new AppRouter();
+	Backbone.history.start();
+});
+
 AppRouter = Backbone.Router.extend({
 
 	initialize: function(){
@@ -8,13 +13,23 @@ AppRouter = Backbone.Router.extend({
 	},
 
 	routes: {
+		""				: "home",
 		"students"		: "showStudents",
 		"students/:id"	: "showStudent",
 		"staff"			: "showStaff"
 		},
 
+	home: function() {
+		var homeTemplate = _.template($('#home-template').text());
+		console.log('home route')
+		$('.container').html('');
+		$('.container-add').html('');
+
+		$('.container').append(homeTemplate());
+
+	},
+
 	showStudents: function(){
-		var template = _.template($('#add-template').text());
 
 		$('.container').html('');
 		$('.container-add').html('');
@@ -24,21 +39,8 @@ AppRouter = Backbone.Router.extend({
 				students.each(function(student){
 					new CompleteDirectoryView({model: student})
 				});
+				new AddPersonView();
 			}
-		});
-		
-		$('.container-add').append(template).css({'background-color':'#1187E4'});
-		$('#add').click(function() {
-			var newName= $('#student-name').val();
-			var newEmail= $('#email').val();
-			var newGithub= $('#github').val();
-
-			var newClassmate = new Student ({name:newName, id: newName, email: newEmail, github: newGithub});
-			var newView = new CompleteDirectoryView ({model: newClassmate});
-
-			$.post('http://0.0.0.0:3000/collections/studentdata', {name:newName, id: newName, email: newEmail, github: newGithub})
-
-			$('input').val('');
 		});
 	},
 
@@ -68,9 +70,4 @@ AppRouter = Backbone.Router.extend({
 				}
 			});
 		}
-});
-
-$('document').ready(function() {
-	var router = new AppRouter();
-	Backbone.history.start();
 });
