@@ -16,6 +16,7 @@ CompleteDirectoryView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.append(this.gridTemplate({student: this.model }) );
+
 	},
 
 	activate: function() {
@@ -48,12 +49,12 @@ AddPersonView = Backbone.View.extend({
 		var newEmail = $('input#student-email').val();
 		var newGithub = $('input#student-github').val();
 
-		var newClassmate = new Student();
+		var newClassmate = new Student({name: newName, id: newName, email: newEmail, github: newGithub});
 		newClassmate.set({name: newName, id: newName, email: newEmail, github: newGithub})
-		students = new StudentCollection()
-		students.add(newClassmate)
+		this.students = new StudentCollection();
+		this.students.add(newClassmate);
 		var newView = new CompleteDirectoryView ({model: newClassmate});
-		newClassmate.save()
+		newClassmate.save();
 
 		$('input').val('');
 	}
@@ -90,9 +91,12 @@ PersonView = Backbone.View.extend({
 
 	destroy: function() {
 		if (confirm('Are you sure you want to delete this person?') === true) {
-		this.model.destroy();
-		this.remove();
-		Backbone.history.navigate("#/students", {trigger:true});
+		this.model.destroy({
+			success: function() {
+				Backbone.history.navigate("#/students", {trigger:true});
+			}
+		});
+		// this.remove();
 		} 
 	},
 

@@ -39,9 +39,10 @@ AppRouter = Backbone.Router.extend({
 				students.each(function(student){
 					new CompleteDirectoryView({model: student})
 				});
-				new AddPersonView();
 			}
 		});
+
+		new AddPersonView();
 	},
 
 	showStudent: function(id){
