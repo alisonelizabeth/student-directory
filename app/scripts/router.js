@@ -9,7 +9,6 @@ AppRouter = Backbone.Router.extend({
 		console.log('new route created')
 		this.students = new StudentCollection();
 		this.staffMembers = new StaffCollection();
-
 	},
 
 	routes: {
@@ -26,13 +25,10 @@ AppRouter = Backbone.Router.extend({
 		$('.container-add').html('');
 
 		$('.container').append(homeTemplate());
-
 	},
 
 	showStudents: function(){
-
 		$('.container').html('');
-		$('.container-add').html('');
 
 		this.students.fetch({
 			success: function(students) {
@@ -41,8 +37,8 @@ AppRouter = Backbone.Router.extend({
 				});
 			}
 		});
-
-		new AddPersonView();
+		addPerson = new AddPersonView({collection: this.students});
+		addPerson.stopListening(this.students);
 	},
 
 	showStudent: function(id){

@@ -11,7 +11,6 @@ Student = Backbone.Model.extend({
 
 	// url: 'http://0.0.0.0:3000/collections/studentdata',
 
-
 	initialize: function(){
 		console.log('new student created')
 	}

@@ -16,7 +16,6 @@ CompleteDirectoryView = Backbone.View.extend({
 
 	render: function(){
 		this.$el.append(this.gridTemplate({student: this.model }) );
-
 	},
 
 	activate: function() {
@@ -40,25 +39,24 @@ AddPersonView = Backbone.View.extend({
 	},
 
 	render: function () {
-		this.$el.empty();
+		this.$el.html('');
 		this.$el.append(this.addTemplate()).css({'background-color':'#1187E4'});
 	},
 
-	addPerson: function() {
+	addPerson: function() {		
 		var newName = $('input#student-name').val();
 		var newEmail = $('input#student-email').val();
 		var newGithub = $('input#student-github').val();
 
 		var newClassmate = new Student({name: newName, id: newName, email: newEmail, github: newGithub});
-		newClassmate.set({name: newName, id: newName, email: newEmail, github: newGithub})
-		this.students = new StudentCollection();
-		this.students.add(newClassmate);
-		var newView = new CompleteDirectoryView ({model: newClassmate});
-		newClassmate.save();
-
-		$('input').val('');
-	}
-
+		this.collection.add(newClassmate);
+		newClassmate.save({}, {
+			success: function(classmate) {
+				new CompleteDirectoryView ({model: classmate});
+				$('input').val('');
+			}
+		});
+	},
 });
 
 // view for individual students
@@ -96,7 +94,6 @@ PersonView = Backbone.View.extend({
 				Backbone.history.navigate("#/students", {trigger:true});
 			}
 		});
-		// this.remove();
 		} 
 	},
 
