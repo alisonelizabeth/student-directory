@@ -37,8 +37,24 @@ AppRouter = Backbone.Router.extend({
 				});
 			}
 		});
-		addPerson = new AddPersonView({collection: this.students});
-		addPerson.stopListening(this.students);
+		
+		new AddPersonView();
+
+		$('#add').click(function(){
+			var newName = $('input#student-name').val();
+			var newEmail = $('input#student-email').val();
+			var newGithub = $('input#student-github').val();
+
+			var newClassmate = new Student({name: newName, id: newName, email: newEmail, github: newGithub});
+			collection = new StudentCollection();
+			collection.add(newClassmate);
+			newClassmate.save({}, {
+				success: function(classmate) {
+					new CompleteDirectoryView ({model: classmate});
+					$('input').val('');
+				}
+			});
+		});	
 	},
 
 	showStudent: function(id){

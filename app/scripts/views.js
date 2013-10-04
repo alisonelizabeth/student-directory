@@ -29,10 +29,6 @@ AddPersonView = Backbone.View.extend({
 
 	el: '.container-add',
 
-	events: {
-		"click #add": "addPerson"
-	},
-
 	initialize: function(){
 		console.log('added input field')
 		this.render();
@@ -41,22 +37,7 @@ AddPersonView = Backbone.View.extend({
 	render: function () {
 		this.$el.html('');
 		this.$el.append(this.addTemplate()).css({'background-color':'#1187E4'});
-	},
-
-	addPerson: function() {		
-		var newName = $('input#student-name').val();
-		var newEmail = $('input#student-email').val();
-		var newGithub = $('input#student-github').val();
-
-		var newClassmate = new Student({name: newName, id: newName, email: newEmail, github: newGithub});
-		this.collection.add(newClassmate);
-		newClassmate.save({}, {
-			success: function(classmate) {
-				new CompleteDirectoryView ({model: classmate});
-				$('input').val('');
-			}
-		});
-	},
+	}
 });
 
 // view for individual students
